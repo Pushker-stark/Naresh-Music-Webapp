@@ -1,10 +1,17 @@
 from django.shortcuts import render
-from .models import Song
+from .models import Song,Artist
 
-def song_list(request):
+def home(request):
     songs = Song.objects.all()
     return render(request, 'index.html', {'songs': songs})
 
-# def song_detail(request, song_id):
-#     song = Song.objects.get(pk=song_id)
-#     return render(request, 'music/song_detail.html', {'song': song})
+def artist(request):
+    # song = Song.objects.get(pk=song_id)
+    artist=Artist.objects.all()
+    return render(request, 'artist.html', {'artist': artist})
+
+def song_upload(request):
+    return render(request,'form.html')
+
+def albums(request):
+    return render(request,'album.html')
