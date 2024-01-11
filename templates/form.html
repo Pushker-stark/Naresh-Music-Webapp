@@ -22,7 +22,46 @@
   js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=249078091804020&version=v2.0";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
-
+<script>
+  function validateForm() {
+      // Get form inputs
+      var title = document.getElementById('title').value;
+      var artist = document.getElementById('artist').value;
+      var songurl = document.getElementById('songurl').value;
+      var imageurl = document.getElementById('imageurl').value;
+  
+      // Basic validation example (you can customize this)
+      if (title.trim() === '') {
+          displayValidationMessage('Song Name is required.');
+          return false;
+      }
+  
+      if (artist.trim() === '') {
+          displayValidationMessage('Artist Name is required.');
+          return false;
+      }
+  
+      if (songurl.trim() === '') {
+          displayValidationMessage('Songs Cloud URL is required.');
+          return false;
+      }
+  
+      if (imageurl.trim() === '') {
+          displayValidationMessage('Thumbnail Cloud URL is required.');
+          return false;
+      }
+  
+      // Additional validation logic can be added here
+  
+      return true;
+  }
+  
+  function displayValidationMessage(message) {
+      // Display validation message
+      var validationMessages = document.getElementById('validation-messages');
+      validationMessages.innerHTML = '<p style="color: red;">' + message + '</p>';
+  }
+</script>
 <!-- Header Starts -->
 <div class="navbar-wrapper ">
       <div class="container">
@@ -48,10 +87,10 @@
             <!-- Nav Starts -->
             <div class="navbar-collapse  collapse">
               <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href="/">Home</a></li>
+                <li ><a href="/">Home</a></li>
                 <li><a href="{% url 'albums' %}">Albums</a></li>
                 <li><a href="{% url 'artist' %}">Artist</a></li>
-                <li><a href="{% url 'upload' %}">Upload Songs</a></li>
+                <li class="active"><a href="{% url 'upload' %}">Upload Songs</a></li>
               </ul>
             </div>
             <!-- #Nav Ends -->
@@ -78,7 +117,7 @@
 <div class="row">
 	<div class="col-sm-6 col-xs-12">
 	<div class="fronttext">
-	 	<h2 class="bgcolor  animated fadeInUpBig"><span class="glyphicon glyphicon-headphones"></span> DJ Kranks</h2><br>
+	 	<h2 class="bgcolor  animated fadeInUpBig"><span class="glyphicon glyphicon-headphones"></span> DJ N@re$h</h2><br>
 		<p class=" animated fadeInUp">Best DJ in town. There are other and natural causes tending toward a diminution of population, but nothing contributes so greatly to this end as the fact that no male or female Martian is ever voluntarily without a weapon of destruction.</p>
 	</div>
 	</div>
@@ -103,14 +142,27 @@
 <!--Contact Starts-->
 <div id="contact" class="spacer">
 <div class="contactform center">
-<h3><span class="glyphicon glyphicon-envelope"></span> Contact</h3>
+<h3><span class="glyphicon glyphicon-envelope"></span> Let's Collect some songs!!</h3>
   <div class="row">      
       <div class="col-sm-6 col-sm-offset-3 ">
-      <h4>Get in touch or<br><b>Just say Hello!</b></h4>
-        <input type="text" placeholder="Name">
-        <input type="text" placeholder="Email">
-        <textarea rows="5" placeholder="Message"></textarea>
-        <button class="btn btn-warning bgcolor">Send</button>
+      <h4>Fill out the Form<br><b>Here we go!</b></h4>
+      <form method="post" action="{% url 'upload' %}" onsubmit="return validateForm()">
+        {% csrf_token %}
+        <label for="title">Song Name:</label>
+        <input type="text" id="title" name="title" placeholder="Song Name" required>
+        <label for="artist">Artist Name:</label>
+        <input type="text" id="artist" name="artist" placeholder="Artist Name" required>
+        <label for="songurl">Songs Cloud URL:</label>
+        <input type="url" id="songurl" name="songurl" placeholder="Songs cloud url" required>
+        <label for="imageurl">Thumbnail Cloud URL:</label>
+        <input type="url" id="imageurl" name="imageurl" placeholder="Song thumbnail cloud url" required>
+    
+        <!-- Add validation messages -->
+        <div id="validation-messages"></div>
+    
+        <button type="submit" class="btn btn-warning bgcolor">Send</button>
+      </form>
+        
       </div>
   </div>
 
@@ -138,7 +190,7 @@
 <!-- Footer Starts -->
 <div id="footer">
 <div class="container">
-Copyright 2014 DJ KRANKS.
+Copyright 2014 DJ N@re$h.
 </div>
 </div>
 <!-- # Footer Ends -->

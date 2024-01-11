@@ -48,8 +48,8 @@
             <!-- Nav Starts -->
             <div class="navbar-collapse  collapse">
               <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href="/">Home</a></li>
-                <li><a href="{% url 'albums' %}">Albums</a></li>
+                <li ><a href="/">Home</a></li>
+                <li class="active"><a  href="{% url 'albums' %}">Albums</a></li>
                 <li><a href="{% url 'artist' %}">Artist</a></li>
                 <li><a href="{% url 'upload' %}">Upload Songs</a></li>
               </ul>
@@ -78,7 +78,7 @@
 <div class="row">
 	<div class="col-sm-6 col-xs-12">
 	<div class="fronttext">
-	 	<h2 class="bgcolor  animated fadeInUpBig"><span class="glyphicon glyphicon-headphones"></span> DJ Kranks</h2><br>
+	 	<h2 class="bgcolor  animated fadeInUpBig"><span class="glyphicon glyphicon-headphones"></span> DJ N@re$h</h2><br>
 		<p class=" animated fadeInUp">Best DJ in town. There are other and natural causes tending toward a diminution of population, but nothing contributes so greatly to this end as the fact that no male or female Martian is ever voluntarily without a weapon of destruction.</p>
 	</div>
 	</div>
@@ -102,17 +102,43 @@
 
 
 
+<!--Blog Event Starts-->
+<div id="blogevent"  class="blogevent spacer">
+  <div class="row">
+  
+    <!-- events -->
+    <div class="col-md-6 col-xs-12">
+      <div class="events">
+      <h3><span class="glyphicon glyphicon-calendar"></span> Events</h3>
+      <ul>
+        {% for song in songs %}
+        <li>
+        <div class="row">
+          <div class="col-xs-12 col-sm-3 col-lg-4"><a href="#" data-toggle="modal" data-target="#blogdetail"><img src={{song.imageurl}} class="img-responsive" alt="music theme" /></a></div>
+          <div class="col-xs-12  col-sm-6 col-lg-5 ">
+            <h5><a href="#" data-toggle="modal" data-target="#blogdetail">{{song.title}}</a></h5>
+            <p>Typewriter photo booth vinyl post-ironic, literally keffiyeh locavore tofu lomo pug Odd Future.</p>
+          </div>
+          <div class="col-xs-12  col-sm-3 col-lg-3 date">
+            <b>2014</b>
+            <span>
+              <iframe width="100%" height="170" scrolling="no" frameborder="no" src={{song.songurl}}></iframe>
+            </span>
+          </div>
+        </div>
+        </li>
+        {% endfor %}
+      </ul>
+      </div>
+    </div>
+    <!-- events -->
+  
+    
+  
+  </div>
+  </div>
+  <!--Blog Events Ends-->
 
-<!-- playlist Starts -->
-<div id="playlist" class="spacer">
-	<div class="row">
-					<div class="col-md-12 col-xs-12">
-					<h3><span class="glyphicon glyphicon-list"></span> Playlist</h3>
-					<iframe width="100%" height="600" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/24314082&amp;theme_color=000000&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_artwork=false"></iframe>
-					</div>
-	</div>
-</div>
-<!-- #playlist Ends -->
 
 
 
@@ -146,7 +172,7 @@
 <!-- Footer Starts -->
 <div id="footer">
 <div class="container">
-Copyright 2014 DJ KRANKS.
+Copyright 2014 DJ N@re$h.
 </div>
 </div>
 <!-- # Footer Ends -->
