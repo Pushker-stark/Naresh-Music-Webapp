@@ -1,4 +1,5 @@
 
+<<<<<<< HEAD
 # DJ-Naresh
 
 Music website you can play songs and add songs also checkout artist songs.
@@ -59,3 +60,5 @@ password: 12345
 
 ![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
 
+=======
+>>>>>>> 650b95006662d14549394dc20cf6c613b1d855f6
