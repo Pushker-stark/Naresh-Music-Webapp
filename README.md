@@ -48,6 +48,9 @@ So here is the last stuff were form is created and it validate using javascript 
 For this i have added readme in github and also requiremnt .txt file so first install requirement .txt file and then no need to create virtual env just run python manage.py runserver goto the link it will gonna display
 and to look admin panel
 
+## Database 
+
+DB used here is postgress and hosted in railway platform
 ```
 Username: admin
 password: 12345
