@@ -58,3 +58,4 @@ password: 12345
 ![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
 
 helped for deploy : https://youtu.be/I5x8lAVQ8QQ?si=mkzpUlfZmbcvcgoh
+and blog : https://devmaesters.com/blog/15
